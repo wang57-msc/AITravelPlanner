@@ -1,1 +1,2 @@
 https://github.com/wang57-msc/AITravelPlanner.git（备用）
+deepseek密钥：sk-d77cc3f670164ebca4dd5c58e06d14da

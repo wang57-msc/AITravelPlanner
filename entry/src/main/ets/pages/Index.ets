@@ -13,6 +13,13 @@ struct Index {
         })
         .width(200)
         .height(50)
+      Button('开始 AI 旅行规划')
+        .onClick(() => {
+          router.pushUrl({ url: 'pages/AiPlanPage' });
+        })
+        .width(200)
+        .height(50)
+        .margin({ top: 80 }) // 往下推80，避免和上面的按钮重叠
     }
     .height('100%')
     .width('100%')
