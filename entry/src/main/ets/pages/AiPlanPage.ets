@@ -1,3 +1,4 @@
+import { router } from '@kit.ArkUI';
 import { http } from '@kit.NetworkKit';
 import { preferences } from '@kit.ArkData';
 import { promptAction } from '@kit.ArkUI';
@@ -46,6 +47,14 @@ struct AiPlanPage {
       this.dataPreferences = await preferences.getPreferences(getContext(this), this.PREF_NAME);
     } catch (err) {
       console.error('读取配置失败', err);
+    }
+    const params = router.getParams() as Record<string, string>;
+    if (params && params.autoPrompt) {
+      this.userInput = params.autoPrompt; // 把条件填入输入框
+      // 延迟一小会儿调用发送，确保页面加载完毕
+      setTimeout(() => {
+        this.sendMessage();
+      }, 500);
     }
   }
 

@@ -5,23 +5,34 @@ struct Index {
   @State message: string = 'Hello World';
 
   build() {
-    RelativeContainer() { // 如果看 RelativeContainer 不顺眼，可以改成 Column()，但留着也没事
+    Column({ space: 20 }) { // 用 Column 垂直排列，加 20 的间距，绝对不会重叠
       Button('去模型设置页')
+        .width('80%') // 统一宽度更好看
+        .height(50)
+        .backgroundColor($r('app.color.brand_primary'))
         .onClick(() => {
-          // 注意：这里路径必须和你新建的文件名一致
           router.pushUrl({ url: 'pages/ModelSettings' });
         })
-        .width(200)
-        .height(50)
+
       Button('开始 AI 旅行规划')
+        .width('80%')
+        .height(50)
+        .backgroundColor($r('app.color.brand_primary'))
         .onClick(() => {
           router.pushUrl({ url: 'pages/AiPlanPage' });
         })
-        .width(200)
+
+      Button('定制旅行条件')
+        .width('80%')
         .height(50)
-        .margin({ top: 80 }) // 往下推80，避免和上面的按钮重叠
+        .backgroundColor($r('app.color.brand_primary'))
+        .onClick(() => {
+          router.pushUrl({ url: 'pages/CustomPlanPage' });
+        })
     }
-    .height('100%')
     .width('100%')
+    .height('100%')
+    .justifyContent(FlexAlign.Center) // 让三个按钮居中
+    .backgroundColor($r('app.color.bg_color'))
   }
 }
