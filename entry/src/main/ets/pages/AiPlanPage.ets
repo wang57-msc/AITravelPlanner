@@ -56,6 +56,7 @@ struct AiPlanPage {
         this.sendMessage();
       }, 500);
     }
+    // TODO: 明天在这里写读取本地聊天记录的逻辑
   }
 
   async sendMessage() {
@@ -77,6 +78,7 @@ struct AiPlanPage {
 
     // 1. 用户的问题放进气泡列表
     this.messages.push({ role: "user", content: userQuestion });
+    // TODO: 明天在这里写保存聊天记录到本地的方法
     // 2. AI 的“正在思考”占位符放进列表
     this.messages.push({ role: "assistant", content: "AI 正在努力思考中..." });
     // 3. 记住这个占位符的位置
