@@ -38,6 +38,16 @@ struct Index {
         .height(50)
         .borderRadius(25)
 
+      Button('退出登录')
+        .width('85%')
+        .height(50)
+        .borderRadius(25)
+        .backgroundColor(Color.Transparent) // 透明背景
+        .fontColor(Color.Gray)             // 灰色字体
+        .margin({ top: 20 })
+        .onClick(() => {
+          router.replaceUrl({ url: 'pages/LoginPage' });
+        })
     }
     .width('100%')
     .height('100%')

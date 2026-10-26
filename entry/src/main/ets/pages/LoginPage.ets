@@ -1,4 +1,4 @@
-import { router } from '@kit.ArkUI';
+import { promptAction, router } from '@kit.ArkUI';
 
 @Entry
 @Component
@@ -56,8 +56,13 @@ struct LoginPage {
         .borderRadius(25)
         .margin({ top: 30 })
         .onClick(() => {
-          // 假登录：直接跳转到首页，把登录页销毁
-          router.replaceUrl({ url: 'pages/Index' });
+          // 假验证：账号填 admin，密码填 123456 才能进
+          if (this.username === 'admin' && this.password === '123456') {
+            router.replaceUrl({ url: 'pages/Index' });
+          } else {
+            // 如果输入不对，弹窗提示
+            promptAction.showToast({ message: '账号或密码错误（试试 admin / 123456）' });
+          }
         })
 
       Blank().layoutWeight(1)
